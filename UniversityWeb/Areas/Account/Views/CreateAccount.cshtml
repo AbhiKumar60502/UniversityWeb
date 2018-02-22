@@ -1,0 +1,90 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "New Student Registration";
+}
+
+<div class="content-wrapper">
+            <hgroup class="title">                
+                <h2>@ViewBag.Message</h2>
+            </hgroup>            
+ </div>
+<body>
+    @*@using (Html.BeginForm("CreateAccount", "Account", new { area = "Account" }, FormMethod.Post, new { id = "CreateNewStudentAccountForm" }))
+    {
+    <div>
+        <ol>
+            <li>
+                @Html.Label("First Name:")
+                @Html.TextBox("FirstName")
+            </li>
+            <li>
+                @Html.Label("Middle Name:")
+                @Html.TextBox("MiddleName")
+            </li>
+            <li>
+                @Html.Label("Last Name:")
+                @Html.TextBox("LastName")
+            </li>
+            <li>
+                @Html.Label("Social Security Number:")
+                @Html.TextBox("SSN")
+            </li>
+            <li>
+                @Html.Label("Registration PIN:")
+                @Html.TextBox("RegistrationPIN")
+            </li>
+            </ol>            
+            <fieldset style="text-align:left">
+                <legend class="legend" ><b>Account Information</b></legend>               
+                    <li>
+                        @Html.Label("User Name:")
+                        @Html.TextBox("UserName")
+                    </li>
+                    <li>
+                        @Html.Label("Password:")
+                        @Html.TextBox("Password")
+                    </li>                
+            </fieldset>
+             <input type="submit" value="Register" id="RegisterStudent" />        
+    </div>
+    }*@
+    <form id="CreateNewStudentAccountForm" data-ng-submit="CreateStudentRegistration()"  >
+    <div>
+        <ol>
+            <li>
+                @Html.Label("First Name:")
+                @Html.TextBox("FirstName")
+            </li>
+            <li>
+                @Html.Label("Middle Name:")
+                @Html.TextBox("MiddleName")
+            </li>
+            <li>
+                @Html.Label("Last Name:")
+                @Html.TextBox("LastName")
+            </li>
+            <li>
+                @Html.Label("Social Security Number:")
+                @Html.TextBox("SSN")
+            </li>
+            <li>
+                @Html.Label("Registration PIN:")
+                @Html.TextBox("RegistrationPIN")
+            </li>
+            </ol>            
+            <fieldset style="text-align:left">
+                <legend class="legend" ><b>Account Information</b></legend>               
+                    <li>
+                        @Html.Label("User Name:")
+                        @Html.TextBox("UserName")
+                    </li>
+                    <li>
+                        @Html.Label("Password:")
+                        @Html.TextBox("Password")
+                    </li>                
+            </fieldset>
+             <button type="submit" value="Register" id="RegisterStudent">Register</button>        
+    </div>
+        </form>
+</body>
+

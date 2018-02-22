@@ -1,0 +1,20 @@
+﻿@{
+    //Layout = "~/Areas/UniversityHome/Views/Shared/_HomeLayout.cshtml";
+    Layout = null;
+    ViewBag.Title = "New Student Account Created";
+}
+
+<div class="content-wrapper">
+            <hgroup class="title">                
+                <h2>@ViewBag.Message</h2>
+            </hgroup>            
+ </div>
+<body>
+    <div>
+        <label>{{NewAccountCreatedMessage}}</label>
+    </div>
+    <div><a href="@Url.RouteUrl("Default")">Home</a></div>
+    @*<div><a href="@Url.RouteUrl("Default",new { action = "Shell", controller = "Home", area = "UniversityHome" })">Home</a></div>*@
+     @*<div> <a href="#/StartHome">Home</a> </div>*@
+</body>
+

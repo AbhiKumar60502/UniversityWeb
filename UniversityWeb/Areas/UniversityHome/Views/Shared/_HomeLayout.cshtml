@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+@model UniversityWeb.Areas.UniversityHome.ViewModels.HomeViewModel
+@{
+    ViewBag.Title = "Course Management System";
+    var langCode = "en";
+    string langHelperClass = langCode.Equals("en") ? "" : "non-english";
+    
+}
+
+
+@if (Model is UniversityWeb.Common.Interfaces.IAngularView && !string.IsNullOrEmpty(((UniversityWeb.Common.Interfaces.IAngularView)Model).NgAppName))
+{
+    string NgAppName = ((UniversityWeb.Common.Interfaces.IAngularView)Model).NgAppName;
+	@Html.Raw("<!--[if lt IE 7]>	<html lang=\"" + langCode + "\" class=\"" + langCode + " " + langHelperClass + " no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7\" xmlns:ng=\"http://angularjs.org\" id=\"ng-app\" data-ng-app=\"" + NgAppName + "\"> <![endif]-->")
+	@Html.Raw("<!--[if IE 7]>		<html lang=\"" + langCode + "\" class=\"" + langCode + " " + langHelperClass + " no-js lt-ie10 lt-ie9 lt-ie8\" xmlns:ng=\"http://angularjs.org\" id=\"ng-app\" data-ng-app=\"" + NgAppName + "\"> <![endif]-->")
+	@Html.Raw("<!--[if IE 8]>		<html lang=\"" + langCode + "\" class=\"" + langCode + " " + langHelperClass + " no-js lt-ie10 lt-ie9\" xmlns:ng=\"http://angularjs.org\" id=\"ng-app\" data-ng-app=\"" + NgAppName + "\"> <![endif]-->")
+	@Html.Raw("<!--[if IE 9]>		<html lang=\"" + langCode + "\" class=\"" + langCode + " " + langHelperClass + " no-js lt-ie10\" xmlns:ng=\"http://angularjs.org\" id=\"ng-app\" data-ng-app=\"" + NgAppName + "\"> <![endif]-->")
+	@Html.Raw("<!--[if gt IE 9]><!-->")
+	@Html.Raw("<html lang=\"" + langCode + "\" class=\"no-js " + langCode + " " + langHelperClass + "\" xmlns:ng=\"http://angularjs.org\" id=\"ng-app\" data-ng-app=\"" + NgAppName + "\">")
+	@Html.Raw("<!--<![endif]-->")
+}
+else
+{
+	@Html.Raw("<!--[if lt IE 7]>	<html lang=\"" + langCode + "\" class=\"" + langCode + " " + langHelperClass + " no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7\"> <![endif]-->")
+	@Html.Raw("<!--[if IE 7]>		<html lang=\"" + langCode + "\" class=\"" + langCode + " " + langHelperClass + " no-js lt-ie10 lt-ie9 lt-ie8\"> <![endif]-->")
+	@Html.Raw("<!--[if IE 8]>		<html lang=\"" + langCode + "\" class=\"" + langCode + " " + langHelperClass + " no-js lt-ie10 lt-ie9\"> <![endif]-->")
+	@Html.Raw("<!--[if IE 9]>		<html lang=\"" + langCode + "\" class=\"" + langCode + " " + langHelperClass + " no-js lt-ie10\"> <![endif]-->")
+	@Html.Raw("<!--[if gt IE 9]><!--><html lang=\"" + langCode + "\" class=\"" + langCode + " " + langHelperClass + " no-js\"><!--<![endif]-->")
+}
+    <head>
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        @Styles.Render("~/bundles/css")
+        @Scripts.Render("~/bundles/js/modernizr")  
+    </head>
+    
+    <body>
+        <header>
+            <div style=" width:auto; background-image:url('/myUniversity/main/Format/img/head_bkg_brw3.gif'); background-repeat:repeat-x;">
+                <img id="home-header" class="home-header" alt="logo" src="~/Format/img/header_blk_red.gif"/>
+            </div>
+        </header>
+        <!--These angularjs framework loading should be before RenderBody()  -->
+        @Scripts.Render("~/bundles/js/core")
+        @Scripts.Render("~/bundles/js/compatCore")
+        @Scripts.Render("~/bundles/js/angular")
+       @* @RenderSection("featured", required: false)*@
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>       
+    </body>
+</html> 
